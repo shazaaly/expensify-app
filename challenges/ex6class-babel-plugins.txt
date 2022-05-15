@@ -1,3 +1,0 @@
-https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
-
-yarn add babel-plugin-transform-class-properties@6.24.1

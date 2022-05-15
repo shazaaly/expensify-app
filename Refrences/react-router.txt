@@ -1,0 +1,55 @@
+yarn add react-router-dom@4.2.2
+
+app.js : 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+==============
+
+<BrowserRouter> is the recommended interface for running React Router in a web browser.
+ A <BrowserRouter> stores the current location in the browser's address bar 
+ using clean URLs and navigates using the browser's built-in history stack.
+
+ =================
+
+ In case :
+   <BrowserRouter>
+    <div>
+      <Route path="/" component={expensifyComp} />
+      <Route path="/create" component={AddExpencePage} />
+    </div>
+  </BrowserRouter>
+
+  =>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ The server is saying it doesn't exist and the end result is this showing up.
+
+What we need to do is make a tweak to our dev server configuration.
+
+What we have to do is send back indexed HTML for all routes.
+
+So if I go to the root of my application, I want to serve up index, not HTML and let react router
+
+figure out what should get shown to the screen.
+
+If I go to forward slash create, I want to serve up index html and react router, determine what should
+
+get shown to the screen.
+
+So in order to do that we have to make a small change to web page config in order to actually tell the
+
+dev server to always serve up the index html file for all unknown for all fours.
+
+Solution :webpack config:
+
+ devServer : {
+        contentBase : path.join(__dirname, 'public'),
+        historyApiFallback: true
+    }
+
+    =====================
+    overcome getting all matched routes with route path:
+
+    
